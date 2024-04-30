@@ -246,7 +246,12 @@ const Directions = () => {
                     &lt;strong&gt;&lt;/strong&gt; - This will make anything inside in <strong>bold</strong>.
                     <br/>
                     <br/>
+                    &lt;span style='background-color:#FFFFFF'&gt; - This will set the background/highlight color of the text inside to a given hexadecimal color
+                    <br/>
+                    <br/>
                     &lt;br/&gt; - This will create a new line. If you want to create an empty line, do two in a row.
+                    <br/>
+                    <br/>
 
                     When you're done, simply hit the "Post" button, and the data base 
                     will take care of the rest. You'll soon be able to see it on the 
