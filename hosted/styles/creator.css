@@ -1,0 +1,233 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#nav-bar {
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  position: relative;
+  z-index: 3;
+  background-color: black;
+}
+#nav-bar a {
+  font-family: "Philosopher", sans-serif;
+}
+
+#home-text {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 15px;
+}
+
+#creator-text {
+  position: absolute;
+  right: 5%;
+  top: 30px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+}
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 2px;
+  bottom: 16px;
+  left: 0;
+  transform: scaleX(0);
+  transform-origin: top left;
+  transition: transform 0.3s ease;
+  background-color: white;
+}
+
+.nav-link:hover::before {
+  transform: scaleX(1);
+}
+
+#form-content {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding-bottom: 50px;
+}
+#form-content #work-details {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+#form-content #background-area {
+  width: 200px;
+}
+#form-content #text-area {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+#form-content #text-area label {
+  font-family: "Philosopher", sans-serif;
+}
+#form-content #text-area textarea {
+  resize: none;
+  font-family: "Mulish", sans-serif;
+}
+#form-content #button-area {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+}
+#form-content #button-area button {
+  padding: 15px 25px;
+  border: unset;
+  border-radius: 15px;
+  color: #212121;
+  z-index: 1;
+  background: #e8e8e8;
+  position: relative;
+  font-weight: 600;
+  font-size: 17px;
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+  overflow: hidden;
+  width: 200px;
+}
+#form-content #button-area button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0;
+  border-radius: 15px;
+  background-color: #212121;
+  z-index: -1;
+  -webkit-box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  box-shadow: 4px 8px 19px -3px rgba(0, 0, 0, 0.27);
+  transition: all 250ms;
+}
+#form-content #button-area button:hover {
+  color: #e8e8e8;
+}
+#form-content #button-area button:hover::before {
+  width: 100%;
+}
+#form-content .input-group {
+  position: relative;
+}
+#form-content .input-group .input {
+  font-size: 16px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 200px;
+  border: none;
+  border-bottom: 1px solid #515151;
+  background-color: transparent;
+  font-family: "Mulish", sans-serif;
+}
+#form-content .input-group .input:focus {
+  outline: none;
+}
+#form-content .input-group label {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 10px;
+  transition: 0.2s ease all;
+  font-family: "Philosopher", sans-serif;
+}
+#form-content .input-group .input:focus ~ label, #form-content .input-group .input:valid ~ label {
+  top: -20px;
+  font-size: 14px;
+  color: #5264AE;
+}
+#form-content .input-group .bar {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+#form-content .input-group .bar:before, #form-content .input-group .bar:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background-color: #5264AE;
+  transition: 0.2s ease all;
+}
+#form-content .input-group .bar:focus ~ .bar:before, #form-content .input-group .input:focus ~ .bar:after {
+  width: 100%;
+}
+#form-content .input-group .highlight {
+  position: absolute;
+  height: 60%;
+  width: 100%;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+#form-content .input-group .input:focus ~ .highlight {
+  animation: inputHighlighter 0.3s ease;
+}
+@keyframes inputHighlighter {
+  from {
+    background-color: #5264AE;
+  }
+  to {
+    width: 0;
+    background-color: transparent;
+  }
+}
+
+#creator-app {
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  margin: 25px;
+}
+#creator-app h1 {
+  font-family: "Philosopher", sans-serif;
+}
+#creator-app p {
+  font-family: "Mulish", sans-serif;
+}
+#creator-app .centered {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.hidden {
+  opacity: 0;
+}
+
+#message-handler {
+  text-align: center;
+  opacity: 1;
+  transition: opacity 1s ease-in-out;
+}
+#message-handler #message-text {
+  font-family: "Philosopher", sans-serif;
+  color: #a30f05;
+}

@@ -1,0 +1,44 @@
+@use 'ccc';
+@use 'palette';
+@use 'navbar';
+@use 'creatorInput';
+
+@mixin centered {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#creator-app {
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+    margin: 25px;
+
+    h1 {
+        font-family: palette.$main-font;
+    }
+
+    p {
+        font-family: palette.$secondary-font;
+    }
+
+    .centered {
+        @include centered;
+    }
+}
+
+.hidden {
+    opacity: 0;
+}
+
+#message-handler {
+    text-align: center;
+    opacity: 1;
+    transition: opacity 1s ease-in-out;
+
+    #message-text {
+        font-family: palette.$main-font;
+        color: palette.$error-color;
+    }
+}

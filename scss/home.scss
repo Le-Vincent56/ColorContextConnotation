@@ -1,0 +1,50 @@
+@use 'palette';
+@use 'ccc';
+@use 'navbar';
+@use 'menu';
+@use 'workstyles';
+
+
+#work-display {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    #work-details {
+        display: flex;
+        flex-direction: row;
+        align-items: baseline;
+        gap: 60px;
+        padding: 10px;
+        
+        h1, h3 {
+            font-family: palette.$main-font;
+            margin: 0;
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        h3 {
+            font-size: 24px;
+        }
+    }
+
+    #work-body-container {
+        margin-top: 15px;
+        margin-bottom: 25px;
+        border: 1px solid black;
+        border-radius: 5px;
+        padding: 30px;
+        
+        #work-body {
+            font-family: palette.$secondary-font;
+            margin: 0;
+        }
+    }
+}

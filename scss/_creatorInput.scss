@@ -1,0 +1,168 @@
+@use 'palette';
+
+@mixin centered {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#form-content {
+    @include centered;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding-bottom: 50px;
+
+    #work-details {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    #background-area {
+        width: 200px;
+    }
+
+    #text-area {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        label {
+            font-family: palette.$main-font;
+        }
+
+        textarea {
+            resize: none;
+            font-family: palette.$secondary-font;
+        }
+    }
+
+    #button-area {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        justify-content: center;
+
+        button {
+            padding: 15px 25px;
+            border: unset;
+            border-radius: 15px;
+            color: #212121;
+            z-index: 1;
+            background: #e8e8e8;
+            position: relative;
+            font-weight: 600;
+            font-size: 17px;
+            box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+            transition: all 250ms;
+            overflow: hidden;
+            width: 200px;
+        }
+        
+        button::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 0;
+            border-radius: 15px;
+            background-color: #212121;
+            z-index: -1;
+            -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+            box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
+            transition: all 250ms
+        }
+        
+        button:hover {
+            color: #e8e8e8;
+        }
+        
+        button:hover::before {
+            width: 100%;
+        }
+    }
+
+    .input-group {
+        position: relative;
+
+        .input { 
+            font-size: 16px;
+            padding: 10px 10px 10px 5px;
+            display: block;
+            width: 200px;
+            border: none;
+            border-bottom: 1px solid #515151;
+            background-color: transparent;
+            font-family: palette.$secondary-font;
+        }
+
+        .input:focus {
+            outline: none;
+        }
+
+        label {
+            color: #999;
+            font-size: 18px;
+            font-weight: normal;
+            position: absolute;
+            pointer-events: none;
+            left: 5px;
+            top: 10px;
+            transition: 0.2s ease all;
+            font-family: palette.$main-font;
+        }
+
+        .input:focus ~ label, .input:valid ~ label {
+            top: -20px;
+            font-size: 14px;
+            color: #5264AE;
+        }
+
+        .bar {
+            position: relative;
+            display: block;
+            width: 100%;
+        }
+
+        .bar:before, .bar:after {
+            content: '';
+            height: 2px;
+            width: 0;
+            bottom: 1px;
+            position: absolute;
+            background-color: #5264AE;
+            transition: 0.2s ease all;
+        }
+
+        .bar:focus ~ .bar:before, .input:focus ~ .bar:after {
+            width: 100%;
+        }
+
+        .highlight {
+            position: absolute;
+            height: 60%;
+            width: 100%;
+            top: 25%;
+            left: 0;
+            pointer-events: none;
+            opacity: 0.5;
+        }
+
+        .input:focus ~ .highlight {
+            animation: inputHighlighter 0.3s ease;
+        }
+
+        @keyframes inputHighlighter {
+            from {
+                background-color: #5264AE;
+            }
+            to {
+                width: 0;
+                background-color: transparent;
+            }
+        }
+    }
+}

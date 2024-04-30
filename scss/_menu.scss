@@ -1,0 +1,90 @@
+@use 'palette';
+
+#menu-container {
+    margin-top: 30px;
+    width: 40%;
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 5;
+
+    #menu-button {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        height: 45px;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-family: palette.$main-font;
+        font-weight: bold;
+        color: white;
+        background-color: black;
+        border-radius: 5px;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        background-color: #333333;
+
+        max-height: 290px;
+        overflow-y: auto;
+    }
+    
+    li {
+        flex-grow: 1;
+        border: 1px solid black;
+        color: black;
+        display: block;
+        transform-origin: -20px 50%;
+        min-height: 20px;
+
+        background: black;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        font-weight: bold;
+        cursor: pointer;
+        position: relative;
+        z-index: 1;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        font-family: palette.$main-font;
+    }
+    
+    li:hover {
+        color: black;
+    }
+
+    li:after {
+        content: '';
+        background: white;
+        position: absolute;
+        z-index: -1;
+        left: -20%;
+        right: -20%;
+        top: 0;
+        bottom: 0;
+        transform: skewX(-45deg) scale(0, 1);
+        transition: all 0.5s;
+    }
+
+    li:hover:after {
+        transform:skewX(-45deg) scale(1, 1);
+        transition: all 0.5s;
+    }
+    
+    ul, li {
+        list-style: none;
+        margin: 0;
+        padding: 10px;
+    }
+
+}
